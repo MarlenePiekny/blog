@@ -1,28 +1,28 @@
 <?php
 
-//Déclaration et affectation de la variable pageFiltree avec le filter_input
-$pageFiltree = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS);
+//Initialiser la demande d'accès à la bdd une fois
+require_once 'config/database.php';
 
+//FRONT CONTROLLER//
+//Déclaration et affectation du tableau associatif de pages map
+$map = [
+    '404' => 'ressources/views/errors/404.php',
+    'home' => 'home.php',
+];
 
-if (isset($pageFiltree)){
-//Le getpage existe
-if ($pageFiltree== "cv") {
-//La page demandée est la page cv.php
-require 'action/cv.php';
-} else if ($pageFiltree == "hobby" ) {
-//La page demandée est la page hobby.php
-require 'action/hobby.php';
-} else if ($pageFiltree == "contact" ) {
-//La page demandée est la page contact.php
-require 'action/contact.php';
+//Traitement du input_get action de l'URL
+if (filter_has_var(INPUT_GET, 'action')){
+    //L'action existe dans l'URL, redirection vers la page demandée
+    $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
+    if(!isset($map[$action])){
+        //L'action n'est pas renseignée dans le tableau associatif map
+        $action = '404';
+    }
 } else {
-//Le $_GET['page'] n'est pas une page du site
-require 'action/erreur404.php';
+//L'action n'existe pas, redirection vers la page d'acceuil
+    $action = 'home';
 }
 
-} else {
-//La page demandée n'exite pas, on renvoie la page d'accueil
-require 'action/cv.php';
-}
-
-?>
+//On affiche la page
+$file = $map [$action];
+require $file;
