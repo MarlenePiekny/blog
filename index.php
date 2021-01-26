@@ -1,5 +1,10 @@
 <?php
 
+//Afficher les erreurs
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
+
 //Initialiser la demande d'accès à la bdd une fois
 require_once 'config/database.php';
 
@@ -7,7 +12,7 @@ require_once 'config/database.php';
 //Déclaration et affectation du tableau associatif de pages map
 $map = [
     '404' => 'ressources/views/errors/404.php',
-    'home' => 'home.php',
+    'home' => 'app/controllers/homeController.php',
 ];
 
 //Traitement du input_get action de l'URL
