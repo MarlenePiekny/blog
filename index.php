@@ -4,6 +4,11 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
+//Fonction de debug
+function debug($var) {
+    highlight_string("<?php\n" . var_export($var, true) . ";\n?>");
+}
+
 
 //Initialiser la demande d'accès à la bdd une fois
 require_once 'config/database.php';
