@@ -11,15 +11,3 @@ function lastBlogPosts(PDO $connection) : array {
     return $postTab;
 }
 
-//Fonction blogPost qui prend la connexion pdo et retourne un post
-function blogPost(PDO $connection){
-    $rawResult = $connection->query('SELECT title, content, pseudo
-                        FROM Posts
-                        INNER JOIN Authors
-                        ON Posts.Authors_id=Authors.id
-                        ORDER BY Posts.id DESC
-                        LIMIT 1');
-    $postList = $rawResult->fetchAll(PDO::FETCH_ASSOC);
-    return $post;
-}
-

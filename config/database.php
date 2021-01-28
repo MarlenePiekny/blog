@@ -1,4 +1,3 @@
-
 <?php
 
 //Se connecter à la BDD blog via un pdo

@@ -1,3 +1,8 @@
-<?php
-        require 'header.tpl.php';
-        require 'footer.tpl.php';
+
+
+</main>
+
+
+<footer>
+   <section>Marlène 2020</section>
+</footer>
