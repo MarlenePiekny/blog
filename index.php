@@ -19,6 +19,7 @@ $map = [
     '404' => 'ressources/views/errors/404.php',
     'home' => 'app/controllers/homeController.php',
     'blogpost' => 'app/controllers/blogPostController.php',
+    'blogpostcreate' =>'app/controllers/blogPostCreateController.php',
 ];
 
 //Traitement du input_get action de l'URL

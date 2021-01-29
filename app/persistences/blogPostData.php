@@ -32,4 +32,21 @@ function commentsByBlogPost(PDO $connection, $idArticle) {
     return $commentList;
 }
 
+//Fonction blogPostCreate qui prend les champs de la table Posts pour créer un article et retourne [?]
+function blogPostCreate($connection, $postTitle, $postContent, $publicationStartDate, $publicationEndDate, $postImportance, $pseudo){
+    $sh = $connection->query("INSERT INTO Posts.title, Posts.content, Posts.publicationStartDate, Posts.publicationEndDate, Posts.importance, Authors.pseudo
+                        FROM Posts
+                        INNER JOIN Authors ON Posts.Authors_id=Authors.id
+                        VALUES ");
+    $commentList = $sh->fetchAll(PDO::FETCH_ASSOC);
+    return $commentList;
+}
+
+//Fonction blogAuthor qui prend la connexion pdo et retourne l'id et le pseudo de l'auteur
+function blogAuthor($connection) {
+    $sh = $connection->query("SELECT Authors.id, Authors.pseudo
+                        FROM Authors");
+    $authorList = $sh->fetchAll(PDO::FETCH_ASSOC);
+    return $authorList;
+}
 
