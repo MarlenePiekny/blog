@@ -18,6 +18,7 @@ require_once 'config/database.php';
 $map = [
     '404' => 'ressources/views/errors/404.php',
     'home' => 'app/controllers/homeController.php',
+    'blogpost' => 'app/controllers/blogPostController.php',
 ];
 
 //Traitement du input_get action de l'URL
@@ -35,4 +36,5 @@ if (filter_has_var(INPUT_GET, 'action')){
 
 //On affiche la page
 $file = $map [$action];
+
 require $file;

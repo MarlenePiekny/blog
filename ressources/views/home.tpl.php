@@ -1,4 +1,4 @@
-<?php require 'header.tpl.php';?>
+<?php require 'layouts/header.tpl.php';?>
 
 <!--Afficher les 10 derniers articles du blog-->
 
@@ -21,4 +21,4 @@
 
 <?php endif; ?>
 
-<?php require 'footer.tpl.php';?>
+<?php require 'layouts/footer.tpl.php';?>
