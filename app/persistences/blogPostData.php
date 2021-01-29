@@ -28,7 +28,7 @@ function commentsByBlogPost(PDO $connection, $idArticle) {
                         INNER JOIN Authors ON Posts.Authors_id=Authors.id
                         INNER JOIN Comments ON Posts.id=Comments.Posts_id
                         WHERE Posts.id = $idArticle");
-    $commentList = $sh->fetch(PDO::FETCH_ASSOC);
+    $commentList = $sh->fetchAll(PDO::FETCH_ASSOC);
     return $commentList;
 }
 

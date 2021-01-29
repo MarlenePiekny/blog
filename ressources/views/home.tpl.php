@@ -13,8 +13,8 @@
     <?php while ($i < count($tenLastPosts)) : ?>
         <div>
             <h2><?= $tenLastPosts[$i]['title']?></h2>
-                <p><?= $tenLastPosts[$i]['content']?></p>
-                <p><?= $tenLastPosts[$i]['pseudo']?></p>
+            <p><?= $tenLastPosts[$i]['content']?></p>
+            <p><?= $tenLastPosts[$i]['pseudo']?></p>
         </div>
         <?php $i++ ?>
     <?php endwhile; ?>
